@@ -38,6 +38,8 @@ RUN composer global require "squizlabs/php_codesniffer=*"
 
 # Preinstall Playwright (Browsers and Deps)
 # Saves time during the pipelines, although npm still runs for other packages.
+RUN pwd
+RUN npm init playwright@latest
 RUN npx playwright install --with-deps
 
 # Setup working directory
