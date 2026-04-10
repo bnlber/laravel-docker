@@ -49,5 +49,8 @@ RUN npm i -g @playwright/test
 RUN npx playwright install --with-deps chromium-headless-shell
 RUN npm uninstall -g @playwright/test
 
+# Tidyup
+RUN apt-get dist-clean
+
 # Setup working directory
 WORKDIR /var/www
