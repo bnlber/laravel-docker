@@ -3,12 +3,15 @@ FROM php:8.5
 # Add docker-php-extension-installer script
 ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
 
+# Nodesource
+RUN curl -fsSL https://deb.nodesource.com/setup_24.x | sudo -E bash -
+
 # Install dependencies
-RUN apt-get -yq update
-RUN apt-get -yq install \
+RUN apt-get -y update
+RUN apt-get -y install \
+    curl \
     git \
-    nodejs \
-    npm
+    nodejs
 
 # Install php extensions
 RUN chmod +x /usr/local/bin/install-php-extensions && \
@@ -41,7 +44,7 @@ RUN composer global require "squizlabs/php_codesniffer=*"
 # Preinstall Playwright (Browsers and Deps)
 # Saves time during the pipelines, although npm still runs for other packages.
 RUN pwd
-RUN npm init playwright@latest
+RUN npm i -D @playwright/test
 RUN npx playwright install --with-deps
 
 # Setup working directory
