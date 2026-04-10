@@ -45,7 +45,7 @@ RUN composer global require "squizlabs/php_codesniffer=*"
 RUN pwd
 RUN npm i -g @playwright/test
 RUN npx playwright install --with-deps
-RUN npm u -g @playwright/test
+RUN npm uninstall -g @playwright/test
 
 # Setup working directory
 WORKDIR /var/www
