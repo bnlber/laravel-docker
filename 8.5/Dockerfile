@@ -26,7 +26,7 @@ RUN chmod +x /usr/local/bin/install-php-extensions && \
     pcov-stable \
     pdo_mysql \
 #    pdo_pgsql \
-#    pcntl \
+    pcntl \
 #    soap \
     sockets \
     zip
