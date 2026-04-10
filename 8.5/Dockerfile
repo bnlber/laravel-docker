@@ -40,10 +40,12 @@ RUN chmod +x /usr/local/bin/install-php-extensions && \
     exif \
     gd \
     intl \
+    pcov-stable \
     pdo_mysql \
     pdo_pgsql \
     pcntl \
     soap \
+    sockets \
     zip
 
 # Add local and global vendor bin to PATH.
