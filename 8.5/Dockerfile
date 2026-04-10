@@ -51,7 +51,7 @@ RUN chmod +x /usr/local/bin/install-php-extensions && \
 ENV PATH ./vendor/bin:/composer/vendor/bin:/root/.composer/vendor/bin:/usr/local/bin:$PATH
 
 # More generous defaults
-RUN catb /usr/local/etc/php/conf.d/docker-php-memlimit.ini
+RUN cat /usr/local/etc/php/conf.d/docker-php-memlimit.ini
 RUN echo "memory_limit=512M" >> /usr/local/etc/php/conf.d/docker-php-memlimit.ini
 
 # Install PHP_CodeSniffer
