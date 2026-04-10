@@ -49,6 +49,7 @@ RUN npx playwright install --with-deps chromium-headless-shell
 RUN npm uninstall -g @playwright/test
 
 # Tidyup
+RUN apt-get autoremove
 RUN apt-get dist-clean
 
 # Setup working directory
