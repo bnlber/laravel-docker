@@ -6,7 +6,9 @@ ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/do
 # Install dependencies
 RUN apt-get -yq update
 RUN apt-get -yq install \
-    git
+    git \
+    nodejs \
+    npm
 
 # Install php extensions
 RUN chmod +x /usr/local/bin/install-php-extensions && \
