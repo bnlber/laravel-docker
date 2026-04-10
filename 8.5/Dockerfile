@@ -17,17 +17,17 @@ RUN chmod +x /usr/local/bin/install-php-extensions && \
     install-php-extensions \
     @composer \
     redis-stable \
-    imagick \
+#    imagick \
     bcmath \
-    calendar \
-    exif \
+#    calendar \
+#    exif \
     gd \
     intl \
     pcov-stable \
     pdo_mysql \
-    pdo_pgsql \
+#    pdo_pgsql \
     pcntl \
-    soap \
+#    soap \
     sockets \
     zip
 
@@ -44,13 +44,9 @@ RUN composer global require "squizlabs/php_codesniffer=*"
 # Saves time during the pipelines, although npm still runs for other packages.
 RUN npm i -g @playwright/test
 #RUN npx playwright install --with-deps
-#RUN npx playwright install-deps chromium-headless-shell
-RUN npx playwright install --with-deps chromium-headless-shell
+RUN npx playwright install-deps chromium-headless-shell
+#RUN npx playwright install --with-deps chromium-headless-shell
 RUN npm uninstall -g @playwright/test
-
-# Tidyup
-RUN apt-get autoremove
-RUN apt-get dist-clean
 
 # Setup working directory
 WORKDIR /var/www
