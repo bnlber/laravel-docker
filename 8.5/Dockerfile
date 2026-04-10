@@ -1,31 +1,32 @@
-FROM php:8.5-alpine3.21
+FROM php:8.5
 
 # Add docker-php-extension-installer script
 ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
 
 # Install dependencies
-RUN apk add --no-cache \
-    bash \
-    curl \
-    freetype-dev \
-    g++ \
-    gcc \
-    gcompat \
-    git \
-    icu-dev \
-    icu-libs \
-    libc-dev \
-    libzip-dev \
-    make \
-    mysql-client \
-    nodejs \
-    npm \
-    oniguruma-dev \
-    yarn \
-    openssh-client \
-    postgresql-libs \
-    rsync \
-    zlib-dev
+# RUN apt-get update
+# RUN apt-get install \
+#     bash \
+#     curl \
+#     freetype-dev \
+#     g++ \
+#     gcc \
+#     gcompat \
+#     git \
+#     icu-dev \
+#     icu-libs \
+#     libc-dev \
+#     libzip-dev \
+#     make \
+#     mysql-client \
+#     nodejs \
+#     npm \
+#     oniguruma-dev \
+#     yarn \
+#     openssh-client \
+#     postgresql-libs \
+#     rsync \
+#     zlib-dev
 
 # Install php extensions
 RUN chmod +x /usr/local/bin/install-php-extensions && \
