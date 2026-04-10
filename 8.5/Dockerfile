@@ -7,7 +7,7 @@ ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/do
 RUN curl -fsSL https://deb.nodesource.com/setup_24.x | bash -
 
 # Install dependencies
-RUN apt-get -y install \
+RUN apt-get -y --no-install-recommends install \
     curl \
     git \
     nodejs
@@ -42,7 +42,6 @@ RUN composer global require "squizlabs/php_codesniffer=*"
 
 # Preinstall Playwright (Browsers and Deps)
 # Saves time during the pipelines, although npm still runs for other packages.
-RUN pwd
 RUN npm i -g @playwright/test
 #RUN npx playwright install --with-deps
 #RUN npx playwright install-deps chromium-headless-shell
