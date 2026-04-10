@@ -20,13 +20,13 @@ RUN chmod +x /usr/local/bin/install-php-extensions && \
 #    imagick \
     bcmath \
 #    calendar \
-#    exif \
+    exif \
     gd \
     intl \
     pcov-stable \
     pdo_mysql \
 #    pdo_pgsql \
-    pcntl \
+#    pcntl \
 #    soap \
     sockets \
     zip
