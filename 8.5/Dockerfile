@@ -36,5 +36,9 @@ RUN echo "memory_limit=512M" > /usr/local/etc/php/conf.d/docker-php-memlimit.ini
 # Install PHP_CodeSniffer
 RUN composer global require "squizlabs/php_codesniffer=*"
 
+# Preinstall Playwright (Browsers and Deps)
+# Saves time during the pipelines, although npm still runs for other packages.
+RUN npx playwright install --with-deps
+
 # Setup working directory
 WORKDIR /var/www
